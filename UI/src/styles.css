@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.purple {
+  color: #673ab7;
+}
+
+.bgpurple {
+  background-color: #673ab7 !important;
+}
+
+.bgpurple .mat-expansion-indicator::after {
+  color: #fff !important;
+}
+
+.bgpurplelight {
+  background-color: #8c51f1;
+}
+
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.mt-7 {
+  margin-top: 5.3rem;
+}
+
+.mt-6 {
+  margin-top: 4.1rem;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+.mdc-switch:disabled .mdc-switch__track::after {
+  background: #1b7a03 !important;
+}
+
+.mdc-switch.mdc-switch--selected:disabled .mdc-switch__handle::after {
+  background: #1b7a03 !important;
+}
+
+.mdc-switch.mdc-switch--unselected:disabled .mdc-switch__handle::after {
+  background: #f30b0b !important;
+}

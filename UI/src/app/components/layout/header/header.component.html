@@ -1,0 +1,11 @@
+<div class="fixed-top w-100">
+  <mat-toolbar>
+    <button mat-icon-button (click)="toggleSidenav.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div *ngIf="user">
+      <span>Welcome Back, {{ user?.username }}</span>
+    </div>
+    <span class="spacer"></span>
+  </mat-toolbar>
+</div>

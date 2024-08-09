@@ -1,0 +1,24 @@
+<div class="container-fluid mt-6 mb-4">
+  <mat-toolbar>
+    <h1>
+      Menus
+    </h1>
+    <span class="spacer"></span>
+  </mat-toolbar>
+  <div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of menu">
+            <td>{{item.id}}</td>
+            <td>{{item.MenuName}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

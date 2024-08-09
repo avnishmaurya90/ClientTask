@@ -1,0 +1,21 @@
+<div class="container-fluid mt-6 mb-4">
+  <mat-toolbar>
+    <h1>Chat</h1>
+    <span class="spacer"></span>
+  </mat-toolbar>
+  <div>
+    <button class="btn btn-primary" (click)="sendMessage()">Emit Event</button>
+  </div>
+  <div *ngIf="sentMessages.length > 0">
+    <h6>Event from Angular App</h6>
+    <ul>
+      <li *ngFor="let msg of sentMessages">{{ msg }}</li>
+    </ul>
+  </div>
+  <div *ngIf="receivedMessages.length > 0">
+    <h6>Event from NodeJS App</h6>
+    <ul>
+      <li *ngFor="let msg of receivedMessages">{{ msg }}</li>
+    </ul>
+  </div>
+</div>

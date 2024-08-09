@@ -1,0 +1,68 @@
+<div class="container-fluid ">
+
+  <div class="row min-vh-100">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto p-2">
+      <div class="d-flex justify-content-center align-items-center">
+        <img class="img-fluid" alt="login" src="assets/login.png" width="600" height="550">
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto">
+      <div class="d-flex justify-content-center align-items-center">
+        <form class="form" [formGroup]="loginFG" (submit)="onSubmit()">
+          <div class="text-start py-2">
+            <h5 class="fs-4 py-1">Welcome</h5>
+            <h5 class="fs-2 purple fw-bolder">CLIENT TASK</h5>
+          </div>
+          <mat-form-field class="field">
+            <mat-label>USERNAME</mat-label>
+            <input matInput placeholder="username or email" formControlName="emailId">
+            <mat-error>
+              <span *ngIf="submitted && (loginFG.get('emailId')?.hasError('required'))">
+                Username or Email is required
+              </span>
+              <span *ngIf="submitted && (loginFG.get('emailId')?.hasError('email'))">
+                Invalid email format
+              </span>
+              <span *ngIf="submitted && (loginFG.get('emailId')?.hasError('maxlength'))">
+                Email should have at most 50 characters
+              </span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="field">
+            <mat-label>PASSWORD</mat-label>
+            <input matInput placeholder="password" maxlength="25" [type]="hide ? 'password' : 'text'"
+              formControlName="password">
+            <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" class="p-2"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </span>
+            <mat-error>
+              <span *ngIf="submitted && (loginFG.get('password')?.hasError('required'))">
+                Password is required
+              </span>
+              <span *ngIf="submitted && (loginFG.get('password')?.hasError('pattern'))">
+                At least 6 characters with complexity requirements
+              </span>
+              <span *ngIf="submitted && (loginFG.get('password')?.hasError('maxlength'))">
+                Password should have at most 12 characters
+              </span>
+            </mat-error>
+          </mat-form-field>
+          <div class="text-end fw-medium">
+            <a href="javascript:;" class="text-decoration-none link-secondary">FORGET PASSWORD?</a>
+          </div>
+          <div class="d-grid py-2">
+            <button mat-raised-button color="primary" type="submit">Log in</button>
+          </div>
+          <div class="text-center py-2 fw-medium">
+            <a href="javascript:;" class="text-decoration-none purple">CREATE ACCOUNT</a>
+          </div>
+          <div class="alert alert-danger text-center" role="alert" *ngIf="message">
+            {{ message }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

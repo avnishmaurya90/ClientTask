@@ -1,0 +1,11 @@
+button {
+  margin: 2px;
+}
+
+.active {
+  color: green;
+}
+
+.inactive {
+  color: red;
+}

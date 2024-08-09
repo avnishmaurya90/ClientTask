@@ -1,0 +1,48 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav class="bgpurple" fixedInViewport fixedTopGap="0">
+    <mat-toolbar-row>
+      <div class="ms-2 mt-2">
+        <mat-icon matListIcon class="text-white">desktop_mac</mat-icon>
+      </div>
+      <span class="fs-5 text-white ms-2">DESKBOARD</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()" class="text-white">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <mat-divider></mat-divider>
+    <mat-nav-list class="scroll">
+      <ng-container *ngFor="let item of menus">
+        <a mat-list-item *ngIf="item.SubMenu.length === 0" [routerLink]="getRouterLink(item)" (click)="sidenav.toggle()"
+          class="p-1">
+          <mat-icon matListItemIcon class="text-white m-4">{{ item.MenuIcon }}</mat-icon>
+          <span matListItemTitle class="text-white">{{ item.MenuName }}</span>
+        </a>
+        <div *ngIf="item.SubMenu.length > 0">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            class="bgpurple shadow-none">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon matListItemIcon class="text-white ms-1">{{ item.MenuIcon
+                  }}</mat-icon>
+                <span matListItemTitle class="text-white ms-4">{{item.MenuName }}</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list class="bgpurplelight">
+              <a mat-list-item *ngFor="let subItem of item.SubMenu" [routerLink]="getRouterLink(subItem)"
+                (click)="sidenav.toggle()" class="p-4">
+                <mat-icon matListItemIcon class="text-white">{{ subItem.MenuIcon }}</mat-icon>
+                <span class="text-white">{{ subItem.MenuName }}</span>
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+        </div>
+      </ng-container>
+      <button class="d-flex align-items-center p-4 btn btn-link text-decoration-none fixed-bottom w-25"
+        (click)="logout()">
+        <mat-icon matLisItemIcon class="text-white ms-1">logout</mat-icon>
+        <span matListItemTitle class="text-white ms-4">LogOut</span>
+      </button>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
